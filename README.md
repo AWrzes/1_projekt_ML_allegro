@@ -44,7 +44,7 @@ pip install -r requirements.txt
 ## Rozpoczęcie (i wznowienie pracy)
 Kiedy wracasz do pracy (restartujesz komputer i wirtualną maszynę), przejdź do:
 ```bash
-cd $HOME/merito-ml-week2
+cd $HOME/"katalog projektu"
 ```
 i aktywuj środowisko o nazwie *mlcourse*:
 ```bash
