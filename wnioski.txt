@@ -1,0 +1,23 @@
+1) Do realizacji projektu wykorzystano bazę ocen z allegro. Wykorzystano ML aby odróżnić pozytywne oceny pisemne od negatywnych. W zadaniu jednym z głównych problemów okazało się dobranie odpowiedniego podejścia do traktowania danych. Mając system 5 gwiazdkowy pozostawia się użytkwnikom wprowadzenie pewnego rodzaju niepewności w postaci 3 gwiazdek, które są wartością pośrednią. Sporo portali potrafi potraktować taką ocenę jako pozytywną. Niestety, system parzystych gwiazdek nie jest popularnie wykorzystywany.
+
+2) Zastosowano 3 podejścia: 
+a) przypisano wartość negatywną do 1/2 gwiazdek i pozytywna do 3/4/5.
+b) przypisano wartość negatywną do 1/2 gwiazdek, usunieto 3 gwiazdki i przypisano wartość pozytywna do 4/5
+c) pozostawiono tylko 1 oraz 5 gwiazdek
+
+3) rezultatem tych 3 podejść było stopniowe podnoszenie się accuracy modelu wraz z manipulacja na danych- nie uzyskano jednak dokładności większej niż ~83%
+
+4) ważnym aspektem okazały się puste komórki- brak komentarza to tez dane i w przytlaczajacej wiekszosci przypadkow będzie to ocena 5 gwiazdek
+
+5) dane z allegro miały około 10 000 recordow co jest znacznie mniejszym zestawem danych w stosunku do tego co robiono na zajeciach ~36 000
+
+6) istnieje ryzyko(jednak nie stwierdzono tego czytajac kilkaset komentarzy), ze w danych opisanych jako 5 gwiazdkowe są wmieszane dane negatywne. użytkownicy portali potrafią dać maksymalna ocene w połaczeniu z negatywną opinią ponieważ wiedza ze taka opinia wyswietli się na samej gorze listy dla innych użytkownikow natomiast negatywne wymagaja wiekszego wysilku do wyświetlenia.
+
+7) odnaleziono kilkanascie rekordow błednie uzupełnionych co kompletnie uniemożliwiało poprawne przeprowadzenie analizy -> obowiazkowo w jupyter notebook nalezy robić wstępne testy dla arkuszy danych
+
+8) Wnioski końcowe są następujące: 
+
+a) zastosowana baza komentarzy i ocen jest prawdopodobnie za mała i następny test powinien byc wykonany dla 50 000 recordow lub więcej aby móc stwierdzić czy jak duże znaczenienie ma ilość recordow 
+b) test z 8a) powinien być przeprowadzony na znacznie silniejszej maszynie ponieważ paroletni laptop biurowy się zwyczajnie dławi i może walczyć z takim zagadnieniem walczyć minimum parę godzin
+c) w zwiazku z punktem 6) mozliwe, że tego typu badania wymagaja recznego stworzenia jakiegos modelu, ktory na samym wstępie podczas przygotowywania danych rozpozna i odsieje negatywne 5 gwiazdek i dopiero wtedy należy zająć się właściwymi danymi, co do których jest już pewność.
+d) zadanie uwidacznia jak bardzo operowanie na bardzo duzych zestawach danych jest niewygodne/trudne bądź też zwyczajnie niemożliwe na narzedziach typu excel lub w programach dedykowanych do zastosowania stricte naukowego.
